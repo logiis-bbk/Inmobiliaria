@@ -11,9 +11,10 @@
   Desarrollado por Logi is  
 -->
 
-<app-headboard></app-headboard>
+<app-headboard></app-headboard> 
 <app-login></app-login>
 <!-- ngIf -->
+
 <div class="container">
   <button class="btn btn-warning" (click)="informacion=!informacion">Me Interesa</button>  
   <p class="text-info" *ngIf="informacion, else informacionDos" >Telefono Celular Ejecutivo: 3124635269</p>
@@ -22,3 +23,9 @@
 <ng-template #informacionDos>
   <p class="text-danger">Lo Mejor es invertir en Finca Raiz!</p>
 </ng-template>
+
+
+
+
+
+

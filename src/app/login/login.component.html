@@ -1,17 +1,32 @@
+<!--
+  _                   ,  ,    ___  
+ | |                 (_)(_) (  __ |              
+ | |      _       __  |  |   \ \ \|          
+ | |   :/ _ \  :/ _ \| | | :  \ \        
+ | |   | | | | | |_| | || ||\__\ \       
+ | |___| |_| |  \__  |_||_||____,_)      
+ |____/ \___/ , __| |              
+                | _ /                                   
+                      
+  Desarrollado por Logi is  
+-->
 <div class="cuerpo">
     <div class="login">
-        <img src="../../assets/imagenes/login_ingreso.jpg"  width="50%">
-        <h1>LOGIN - INGRESO</h1>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Usuario</mat-label>
-            <input matInput autocomplete="off">
-        </mat-form-field>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Contraseña</mat-label>
-            <input matInput autocomplete="off">
-        </mat-form-field>
-        <br>
-        <button mat-raised-button color="primary" class="ancho boton">Ingresar</button>
+        <mat-spinner *ngIf="loading" class="spinenr" diameter="40"></mat-spinner>
+         <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="ingresar()">
+            <img src="../../assets/imagenes/login_ingreso.jpg"  width="50%">
+            <h1>LOGIN - INGRESO</h1>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input matInput autocomplete="off" formControlName="usuario">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput autocomplete="off" formControlName="contraseña">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button color="primary" class="ancho boton" [disabled]="form.invalid">Ingresar</button>
+         </form>
     </div>
 </div>
 
