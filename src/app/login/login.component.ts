@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -12,56 +13,55 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
-  
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { 
+
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router) {
     this.form = this.fb.group({
-      usuario: ['',Validators.required],
-      contraseña: ['',Validators.required]
+      usuario: ['', Validators.required],
+      contraseña: ['', Validators.required]
     })
   }
-  
+
   ngOnInit(): void {
   }
-  
 
-  ingresar(){
+
+  ingresar() {
     const usuario = this.form.value.usuario;
     const contraseña = this.form.value.contraseña;
-    if (usuario =='laura' && contraseña =='123') {
+    if (usuario == 'laura' && contraseña == '123') {
 
       this.fakeLoading();
 
-          //dasboar
+      //dasboar
     } else {
       this.error();
-          //error
+      //error
     }
-
-    
-
-    }
-
-    error() {
-      this._snackBar.open('Usuario o clave incorrectos, por favor intenta de nuevo', '', {
-        duration: 5000,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'})
-      }
-
-
-    fakeLoading() {
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false; 
-      }, 1500);
-
-      }
-
-
-
-
-
-    
 
   }
+
+  error() {
+    this._snackBar.open('Usuario o clave incorrectos, por favor intenta de nuevo', '', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
+  }
+
+
+  fakeLoading() {
+    this.loading = true;
+    setTimeout(() => {
+      this.router.navigate(['dashboard'])
+    }, 1500);
+
+  }
+
+
+
+
+
+
+
+}
 

@@ -13,23 +13,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//para utilizar ngsubmit se debe importarn http
-import { HttpClientModule } from '@angular/common/http';
 
-
-//angular material
-import { MatSliderModule } from '@angular/material/slider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 //Componentes
 import { LoginComponent } from './login/login.component';
 import { HeadboardComponent } from './headboard/headboard.component';
+import { SharedCompartidaModule } from './shared-compartida/shared-compartida.module';
+import { AppRoutingModule } from './app-routing.module';
+import { ConsultaInmueblesComponent } from './consulta-inmuebles/consulta-inmuebles.component';
 
 
 
@@ -38,19 +31,15 @@ import { HeadboardComponent } from './headboard/headboard.component';
   declarations: [
     AppComponent,
     HeadboardComponent,
-    LoginComponent
+    LoginComponent,
+    ConsultaInmueblesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule
+    SharedCompartidaModule,
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
